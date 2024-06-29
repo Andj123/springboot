@@ -16,5 +16,4 @@ public class Product {
     private  int amount;
 
 //Test1234!@#$%^
-
 }
