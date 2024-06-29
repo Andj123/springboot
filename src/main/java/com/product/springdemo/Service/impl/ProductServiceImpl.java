@@ -3,7 +3,6 @@ package com.product.springdemo.Service.impl;
 import com.product.springdemo.DAO.ProductDAO;
 import com.product.springdemo.Service.ProductService;
 import com.product.springdemo.model.Product;
-import com.product.springdemo.model.ProductRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +24,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product createProduct(ProductRequest product) {
+    public Product createProduct(Product product) {
         return productDAO.createProduct(product);
     }
 

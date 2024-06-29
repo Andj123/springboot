@@ -2,10 +2,12 @@ package com.product.springdemo.controller;
 
 import com.product.springdemo.Service.ProductService;
 import com.product.springdemo.model.Product;
-import com.product.springdemo.model.ProductRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -17,7 +19,7 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/allProducts")
-    public ResponseEntity<List<Product>> getAllProducts() {
+    private ResponseEntity<List<Product>> getAllProducts() {
         try {
             return ResponseEntity.ok(productService.getAllProducts());
         } catch (SQLException e) {
@@ -26,16 +28,10 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable final int id) {
+    private ResponseEntity<Product> getProductById(@PathVariable final int id) {
 
         return ResponseEntity.ok(productService.getProductById(id));
     }
-
-    @PostMapping("/createProduct")
-    public ResponseEntity<Product> createProduct(@RequestBody final ProductRequest product){
-        return ResponseEntity.ok(productService.createProduct(product));
-    }
-
 }
 
 
